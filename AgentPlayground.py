@@ -14,7 +14,7 @@ st.set_page_config(page_title="HR Agent Playground", page_icon="🤖", layout="w
 
 
 def get_client() -> genai.Client:
-    api_key = os.getenv("GOOGLE_API_KEY")
+    api_key = os.getenv("GOOGLE_API_KEY") or st.secrets.get("GOOGLE_API_KEY")
     if not api_key:
         raise ValueError(
             "Missing GOOGLE_API_KEY. Add it to your .env file."
